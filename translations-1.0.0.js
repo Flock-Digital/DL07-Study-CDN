@@ -219,7 +219,7 @@ const TRANSLATIONS = {
 	  }
 	},
 	password: {
-	  'english_uk': {
+	  'english': {
 		title: "Find out what to expect if you choose to take part in this study",
 		label: "Please enter your password",
 		button_enter: "Enter",
@@ -407,7 +407,7 @@ const TRANSLATIONS = {
 	  }
 	},
 	language_select: {
-	  'english_uk': {
+	  'english': {
 		title: "Please select your preferred language",
 		unavailable_language: "This country's support page currently does not offer a version in your chosen language (English UK)",
 		search: "Search",
@@ -666,18 +666,18 @@ const COUNTRY_DEFAULTS = {
   'it': 'italian',          // Italy
   'pl': 'polish',           // Poland
   'es': 'spanish',          // Spain
-  'gb': 'english_uk',       // United Kingdom
+  'gb': 'english',       // United Kingdom
   'tr': 'turkish',          // Turkey
   'th': 'thai',             // Thailand
   'hk': 'chinese_hk',       // Hong Kong
   'br': 'brazilian_portuguese', // Brazil
   'tw': 'chinese_tw',       // Taiwan
   'jp': 'japanese',         // Japan
-  'ph': 'english_uk',       // Philippines (default to English)
-  'in': 'english_uk',       // India (default to English)
+  'ph': 'english',       // Philippines (default to English)
+  'in': 'english',       // India (default to English)
   'us': 'english_us',       // United States
-  'ca': 'english_uk',       // Canada (could be french_canadian in some regions)
+  'ca': 'english',       // Canada (could be french_canadian in some regions)
   'kr': 'korean',           // South Korea
   'vn': 'vietnamese',       // Vietnam
-  'au': 'english_uk'        // Australia
+  'au': 'english'        // Australia
 };
