@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const pageContent = document.getElementById('page-content');
   const unavailableMessage = document.getElementById('unavailable-message');
   
+  // Check if translation is enabled
+  const translationEnabled = typeof ALLOW_TRANSLATION !== 'undefined' && ALLOW_TRANSLATION === true;
+  
   // Get current country from URL
   const currentPath = window.location.pathname;
   const pathParts = currentPath.split('/').filter(part => part !== '');
@@ -16,9 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (loader) loader.style.display = 'flex';
   if (pageContent) pageContent.style.display = 'none';
   
-  // Get stored language info
-  const storedLanguage = sessionStorage.getItem('selectedLanguage');
-  const storedLanguageCountries = sessionStorage.getItem('selectedLanguageCountries');
+  // Get stored language info (only if translation enabled)
+  let storedLanguage = null;
+  let storedLanguageCountries = null;
+  
+  if (translationEnabled) {
+    storedLanguage = sessionStorage.getItem('selectedLanguage');
+    storedLanguageCountries = sessionStorage.getItem('selectedLanguageCountries');
+  }
   
   // Check if stored language is valid for current country
   function isLanguageValidForCountry(language, country, languageCountries) {
@@ -71,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (currentCountry && availableCountries && availableCountries.split(' ').includes(currentCountry)) {
         item.style.display = '';
         visibleCount++;
-        singleVisibleItem = item; // Keep track of the single item
+        singleVisibleItem = item;
       } else {
         item.style.display = 'none';
       }
@@ -80,78 +88,90 @@ document.addEventListener('DOMContentLoaded', function() {
     return { count: visibleCount, singleItem: singleVisibleItem };
   }
   
-    // Main initialization logic
-	// Main initialization logic
-	async function initialize() {
-	  // Filter languages for current country FIRST
-	  const filterResult = filterLanguages();
-	  
-	  // ONLY auto-redirect if there's exactly ONE language available
-		if (filterResult.count === 1 && filterResult.singleItem) {
-		  const languageSlug = filterResult.singleItem.getAttribute('data-language-select');
-		  const languageCountries = filterResult.singleItem.getAttribute('data-language-country');
-		  
-		  if (languageSlug) {
-			const languageCode = languageSlug.toLowerCase();
-			
-			// Check if we should redirect or show unavailable message
-			const shouldRedirect = !storedLanguage || 
-								  !storedLanguageCountries || 
-								  isLanguageValidForCountry(storedLanguage, currentCountry, storedLanguageCountries);
-			
-			if (shouldRedirect) {
-			  // Store the language
-			  sessionStorage.setItem('selectedLanguage', languageCode);
-			  sessionStorage.setItem('selectedLanguageCountries', languageCountries || '');
-			  
-			  // Show loader for 2 seconds then redirect
-			  setTimeout(() => {
-				window.location.href = currentPath + '/' + languageCode;
-			  }, 2000);
-			  return; // Don't continue initialization
-			}
-			// If not redirecting, fall through to show page with unavailable message
-		  }
-		}
-	  
-	  // If multiple languages available, show the selection page
-	  // Determine which language to display the page in
-	  let displayLanguage;
-	  let showUnavailable = false;
-	  
-	  if (storedLanguage) {
-		// User has a stored language preference
-		if (isLanguageValidForCountry(storedLanguage, currentCountry, storedLanguageCountries)) {
-		  // Stored language IS valid for this country - use it
-		  displayLanguage = storedLanguage;
-		  showUnavailable = false;
-		} else {
-		  // Stored language is NOT valid for this country - show in their language with message
-		  displayLanguage = storedLanguage;
-		  showUnavailable = true;
-		}
-	  } else {
-		// No language stored - use country default
-		displayLanguage = COUNTRY_DEFAULTS[currentCountry] || 'english_uk';
-	  }
-	  
-	  // Translate the page
-	  const pageTranslations = translateLanguageSelectPage(displayLanguage);
-	  
-	  // Show unavailable message if needed
-	  if (showUnavailable && pageTranslations) {
-		showUnavailableMessage(pageTranslations);
-	  }
-	  
-	  // Initialize button states
-	  updateButtonState(displayLanguage);
-	  
-	  // Hide loader and show content after brief delay
-	  setTimeout(() => {
-		if (loader) loader.style.display = 'none';
-		if (pageContent) pageContent.style.display = 'block';
-	  }, 500);
-	}
+  // Main initialization logic
+  async function initialize() {
+    // Filter languages for current country FIRST
+    const filterResult = filterLanguages();
+    
+    // ONLY auto-redirect if there's exactly ONE language available
+    if (filterResult.count === 1 && filterResult.singleItem) {
+      const languageSlug = filterResult.singleItem.getAttribute('data-language-select');
+      const languageCountries = filterResult.singleItem.getAttribute('data-language-country');
+      
+      if (languageSlug) {
+        const languageCode = languageSlug.toLowerCase();
+        
+        // Check if we should redirect or show unavailable message
+        let shouldRedirect = true;
+        
+        if (translationEnabled) {
+          // Only check stored language if translation is enabled
+          shouldRedirect = !storedLanguage || 
+                          !storedLanguageCountries || 
+                          isLanguageValidForCountry(storedLanguage, currentCountry, storedLanguageCountries);
+        }
+        // If translation disabled, always redirect
+        
+        if (shouldRedirect) {
+          // Store the language
+          sessionStorage.setItem('selectedLanguage', languageCode);
+          sessionStorage.setItem('selectedLanguageCountries', languageCountries || '');
+          
+          // Show loader for 2 seconds then redirect
+          setTimeout(() => {
+            window.location.href = currentPath + '/' + languageCode;
+          }, 2000);
+          return; // Don't continue initialization
+        }
+        // If not redirecting, fall through to show page with unavailable message
+      }
+    }
+    
+    // If multiple languages available, show the selection page
+    // Determine which language to display the page in
+    let displayLanguage;
+    let showUnavailable = false;
+    
+    if (!translationEnabled) {
+      // Translation disabled - always use country default, no unavailable message
+      displayLanguage = COUNTRY_DEFAULTS[currentCountry] || 'english';
+      showUnavailable = false;
+    } else {
+      // Translation enabled - use existing logic
+      if (storedLanguage) {
+        // User has a stored language preference
+        if (isLanguageValidForCountry(storedLanguage, currentCountry, storedLanguageCountries)) {
+          // Stored language IS valid for this country - use it
+          displayLanguage = storedLanguage;
+          showUnavailable = false;
+        } else {
+          // Stored language is NOT valid for this country - show in their language with message
+          displayLanguage = storedLanguage;
+          showUnavailable = true;
+        }
+      } else {
+        // No language stored - use country default
+        displayLanguage = COUNTRY_DEFAULTS[currentCountry] || 'english';
+      }
+    }
+    
+    // Translate the page
+    const pageTranslations = translateLanguageSelectPage(displayLanguage);
+    
+    // Show unavailable message if needed (only when translation enabled)
+    if (translationEnabled && showUnavailable && pageTranslations) {
+      showUnavailableMessage(pageTranslations);
+    }
+    
+    // Initialize button states
+    updateButtonState(displayLanguage);
+    
+    // Hide loader and show content after brief delay
+    setTimeout(() => {
+      if (loader) loader.style.display = 'none';
+      if (pageContent) pageContent.style.display = 'block';
+    }, 500);
+  }
   
   // Function to update button state
   function updateButtonState(displayLanguage) {
@@ -163,7 +183,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Use stored or default language for button text
     if (!displayLanguage) {
-      displayLanguage = storedLanguage || COUNTRY_DEFAULTS[currentCountry] || 'english_uk';
+      if (translationEnabled) {
+        displayLanguage = storedLanguage || COUNTRY_DEFAULTS[currentCountry] || 'english';
+      } else {
+        displayLanguage = COUNTRY_DEFAULTS[currentCountry] || 'english';
+      }
     }
     
     if (activeItem && translations[displayLanguage]) {
@@ -250,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const languageCode = languageSlug.toLowerCase();
           
           // Store selected language and its supported countries
+          // (Always store, even if translation disabled - needed for language version pages)
           sessionStorage.setItem('selectedLanguage', languageCode);
           sessionStorage.setItem('selectedLanguageCountries', languageCountries || '');
           
