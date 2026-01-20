@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const loader = document.getElementById('page-loader');
   const pageContent = document.getElementById('page-content');
   const unavailableMessage = document.getElementById('unavailable-message');
+  const loginContainer = document.querySelector('.cp-login-container');
   
   // Check if translation is enabled
   const translationEnabled = typeof ALLOW_TRANSLATION !== 'undefined' && ALLOW_TRANSLATION === true;
@@ -29,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
  
   setTimeout(() => {
-    if (loginContainer) {
-      loginContainer.classList.remove('u-a-fadeIn');
+    if () {
+      .classList.remove('u-a-fadeIn');
     }
   }, 500);  
   
@@ -284,7 +285,6 @@ if (selectButton) {
         sessionStorage.setItem('selectedLanguageCountries', languageCountries || '');
         
         // Add fadeOut class to container
-        const loginContainer = document.querySelector('.cp-login-container');
         if (loginContainer) {
           loginContainer.classList.add('u-a-fadeOut');
         }
