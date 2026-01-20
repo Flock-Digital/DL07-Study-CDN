@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
     storedLanguage = sessionStorage.getItem('selectedLanguage');
     storedLanguageCountries = sessionStorage.getItem('selectedLanguageCountries');
   }
+ 
+  setTimeout(() => {
+    if (loginContainer) {
+      loginContainer.classList.remove('u-a-fadeIn');
+    }
+  }, 500);  
   
   // Check if stored language is valid for current country
   function isLanguageValidForCountry(language, country, languageCountries) {
@@ -280,7 +286,7 @@ if (selectButton) {
         // Add fadeOut class to container
         const loginContainer = document.querySelector('.cp-login-container');
         if (loginContainer) {
-          loginContainer.classList.add('fadeOut');
+          loginContainer.classList.add('u-a-fadeOut');
         }
         
         // Redirect after 1000ms
