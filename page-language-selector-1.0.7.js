@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
  
   setTimeout(() => {
     if (loginContainer) {
-      loginContainer.classList.remove('u-a-fadeIn');
+      loginContainer.classList.remove('u-a-fadein');
     }
   }, 500);  
   
@@ -286,7 +286,7 @@ if (selectButton) {
         
         // Add fadeOut class to container
         if (loginContainer) {
-          loginContainer.classList.add('u-a-fadeOut');
+          loginContainer.classList.add('u-a-fadeout');
         }
         
         // Redirect after 1000ms
