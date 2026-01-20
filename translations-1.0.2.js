@@ -1,3 +1,5 @@
+const ALLOW_TRANSLATION = false;
+
 const TRANSLATIONS = {
 	home: {
 	  'english': { // English (UK) - default
