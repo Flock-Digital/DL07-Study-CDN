@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   
+  // Check if translation is enabled
+  const translationEnabled = typeof ALLOW_TRANSLATION !== 'undefined' && ALLOW_TRANSLATION === true;
+  
   // Function to get country from current URL
   function getCurrentCountry() {
     const currentPath = window.location.pathname;
@@ -16,6 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to determine which language to use
   function determineLanguage() {
     const currentCountry = getCurrentCountry();
+    
+    if (!translationEnabled) {
+      // Translation disabled - ignore stored language, use country default only
+      if (currentCountry && COUNTRY_DEFAULTS[currentCountry]) {
+        return COUNTRY_DEFAULTS[currentCountry];
+      }
+      return 'english';
+    }
+    
+    // Translation enabled - check for stored language
     const storedLanguage = sessionStorage.getItem('selectedLanguage');
     
     // Priority 1: If user has selected a language, use it (regardless of country validity)
@@ -63,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Determine and apply language
   const languageToUse = determineLanguage();
   console.log('Password page using language:', languageToUse);
+  console.log('Translation enabled:', translationEnabled);
   translatePasswordPage(languageToUse);
   
 });
