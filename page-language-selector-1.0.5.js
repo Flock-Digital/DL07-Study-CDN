@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
  
   setTimeout(() => {
-    if () {
+    if (loginContainer) {
       .classList.remove('u-a-fadeIn');
     }
   }, 500);  
