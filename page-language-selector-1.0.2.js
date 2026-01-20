@@ -255,35 +255,42 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Button click handler
-  if (selectButton) {
-    selectButton.addEventListener('click', function(e) {
-      e.preventDefault();
+if (selectButton) {
+  selectButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Don't do anything if button is disabled
+    if (this.classList.contains('cc-disabled')) {
+      return;
+    }
+    
+    const activeItem = document.querySelector('.language-list-item.cc-active');
+    
+    if (activeItem) {
+      const languageSlug = activeItem.getAttribute('data-language-select');
+      const languageCountries = activeItem.getAttribute('data-language-country');
       
-      // Don't do anything if button is disabled
-      if (this.classList.contains('cc-disabled')) {
-        return;
-      }
-      
-      const activeItem = document.querySelector('.language-list-item.cc-active');
-      
-      if (activeItem) {
-        const languageSlug = activeItem.getAttribute('data-language-select');
-        const languageCountries = activeItem.getAttribute('data-language-country');
+      if (languageSlug) {
+        const languageCode = languageSlug.toLowerCase();
         
-        if (languageSlug) {
-          const languageCode = languageSlug.toLowerCase();
-          
-          // Store selected language and its supported countries
-          // (Always store, even if translation disabled - needed for language version pages)
-          sessionStorage.setItem('selectedLanguage', languageCode);
-          sessionStorage.setItem('selectedLanguageCountries', languageCountries || '');
-          
-          // Redirect to language page
-          window.location.href = currentPath + '/' + languageCode;
+        // Store selected language and its supported countries
+        sessionStorage.setItem('selectedLanguage', languageCode);
+        sessionStorage.setItem('selectedLanguageCountries', languageCountries || '');
+        
+        // Add fadeOut class to container
+        const loginContainer = document.querySelector('.cp-login-container');
+        if (loginContainer) {
+          loginContainer.classList.add('fadeOut');
         }
+        
+        // Redirect after 1000ms
+        setTimeout(() => {
+          window.location.href = currentPath + '/' + languageCode;
+        }, 1000);
       }
-    });
-  }
+    }
+  });
+}
   
   // Back button handler
   if (backButton) {
