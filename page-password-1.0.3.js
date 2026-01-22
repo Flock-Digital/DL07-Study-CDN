@@ -2,13 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const loginContainer = document.querySelector('.cp-login-container');
   // Check if translation is enabled
   const translationEnabled = typeof ALLOW_TRANSLATION !== 'undefined' && ALLOW_TRANSLATION === true;
-
+  
   setTimeout(() => {
     if (loginContainer) {
       loginContainer.classList.remove('u-a-fadein');
     }
   }, 500); 
-
   
   // Function to get country from current URL
   function getCurrentCountry() {
@@ -80,10 +79,48 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // PASSWORD VALIDATION FUNCTION
+  function setupPasswordValidation() {
+    const passwordInput = document.querySelector('#pass');
+    const submitButton = document.querySelector('input[type="submit"].w-password-page');
+    
+    if (!passwordInput || !submitButton) {
+      console.warn('Password input or submit button not found');
+      return;
+    }
+    
+    // Function to toggle submit button state
+    function updateSubmitButton() {
+      if (passwordInput.value.trim() === '') {
+        submitButton.classList.add('cc-disabled');
+      } else {
+        submitButton.classList.remove('cc-disabled');
+      }
+    }
+    
+    // Set initial state (should be disabled on page load)
+    updateSubmitButton();
+    
+    // Listen for input changes
+    passwordInput.addEventListener('input', updateSubmitButton);
+    
+    // Prevent form submission if field is empty
+    submitButton.addEventListener('click', function(e) {
+      if (passwordInput.value.trim() === '') {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    });
+  }
+  
   // Determine and apply language
   const languageToUse = determineLanguage();
   console.log('Password page using language:', languageToUse);
   console.log('Translation enabled:', translationEnabled);
   translatePasswordPage(languageToUse);
+  
+  // Setup password validation
+  setupPasswordValidation();
   
 });
