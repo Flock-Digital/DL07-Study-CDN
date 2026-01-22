@@ -1,7 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-  
+  const loginContainer = document.querySelector('.cp-login-container');
   // Check if translation is enabled
   const translationEnabled = typeof ALLOW_TRANSLATION !== 'undefined' && ALLOW_TRANSLATION === true;
+
+  setTimeout(() => {
+    if (loginContainer) {
+      loginContainer.classList.remove('u-a-fadein');
+    }
+  }, 500); 
+
   
   // Function to get country from current URL
   function getCurrentCountry() {
