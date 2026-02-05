@@ -44,18 +44,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // On page load, update the displayed language and hide selected item
   if (storedLanguage) {
-    const capitalizedLanguage = capitalizeFirstLetter(storedLanguage);
-    languageTitle.querySelector('div').textContent = capitalizedLanguage;
-    
-    // Find and hide the matching language in the list
-    languageListItems.forEach(item => {
+    // Find the matching language item in the list
+    const matchingItem = Array.from(languageListItems).find(item => {
       const itemLanguage = item.getAttribute('data-language-select');
-      if (itemLanguage && itemLanguage.toLowerCase() === storedLanguage.toLowerCase()) {
-        item.classList.add('cc-selected');
-      } else {
-        item.classList.remove('cc-selected');
-      }
+      return itemLanguage && itemLanguage.toLowerCase() === storedLanguage.toLowerCase();
     });
+    
+    if (matchingItem) {
+      // Get the human-friendly text from .language-text
+      const languageText = matchingItem.querySelector('.language-text');
+      if (languageText) {
+        languageTitle.querySelector('div').textContent = languageText.textContent;
+      }
+      
+      // Mark this item as selected
+      matchingItem.classList.add('cc-selected');
+      
+      // Remove selected class from all other items
+      languageListItems.forEach(item => {
+        if (item !== matchingItem) {
+          item.classList.remove('cc-selected');
+        }
+      });
+    }
   }
   
   // Toggle dropdown on click
