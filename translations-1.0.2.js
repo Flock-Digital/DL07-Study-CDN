@@ -9,7 +9,7 @@ const TRANSLATIONS = {
 		button_disabled: "Select your country",
 		button_enabled: "Enter"
 	  },
-	  'english_us': { // English (US)
+	  'english-us': { // English (US)
 		title: "Explore your DESTINY-Lung07 support videos",
 		subtitle: "<p><strong>Select</strong> your home country to continue.</p>",
 		search: "Search",
@@ -23,7 +23,7 @@ const TRANSLATIONS = {
 		button_disabled: "আপনার দেশ নির্বাচন করুন",
 		button_enabled: "প্রবেশ করুন"
 	  },
-	  'brazilian_portuguese': { // Brazilian Portuguese
+	  'brazilian-portuguese': { // Brazilian Portuguese
 		title: "Explore seus vídeos de suporte DESTINY-Lung07",
 		subtitle: "<p><strong>Selecione</strong> seu país de origem para continuar.</p>",
 		search: "Buscar",
@@ -37,14 +37,14 @@ const TRANSLATIONS = {
 		button_disabled: "Pilia ang imong nasud",
 		button_enabled: "Sulod"
 	  },
-	  'chinese_hk': { // Chinese (HK)
+	  'chinese-hk': { // Chinese (HK)
 		title: "探索您的 DESTINY-Lung07 支援影片",
 		subtitle: "<p><strong>選擇</strong>您的國家/地區以繼續。</p>",
 		search: "搜尋",
 		button_disabled: "選擇您的國家/地區",
 		button_enabled: "進入"
 	  },
-	  'chinese_tw': { // Chinese (TW)
+	  'chinese-tw': { // Chinese (TW)
 		title: "探索您的 DESTINY-Lung07 支援影片",
 		subtitle: "<p><strong>選擇</strong>您的國家/地區以繼續。</p>",
 		search: "搜尋",
@@ -58,7 +58,7 @@ const TRANSLATIONS = {
 		button_disabled: "Sélectionnez votre pays",
 		button_enabled: "Entrer"
 	  },
-	  'french_canadian': { // French (Canadian)
+	  'french-ca': { // French (Canadian)
 		title: "Explorez vos vidéos d'assistance DESTINY-Lung07",
 		subtitle: "<p><strong>Sélectionnez</strong> votre pays d'origine pour continuer.</p>",
 		search: "Rechercher",
@@ -227,7 +227,7 @@ const TRANSLATIONS = {
 		button_enter: "Enter",
 		forgotten_password: "If you <strong>can't remember</strong> your password, please refer to your wallet card or contact your study team."
 	  },
-	  'english_us': {
+	  'english-us': {
 		title: "Find out what to expect if you choose to take part in this study",
 		label: "Please enter your password",
 		button_enter: "Enter",
@@ -239,7 +239,7 @@ const TRANSLATIONS = {
 		button_enter: "প্রবেশ করুন",
 		forgotten_password: "যদি আপনি আপনার পাসওয়ার্ড <strong>মনে করতে না পারেন</strong>, অনুগ্রহ করে আপনার ওয়ালেট কার্ড দেখুন বা আপনার গবেষণা দলের সাথে যোগাযোগ করুন।"
 	  },
-	  'brazilian_portuguese': {
+	  'brazilian-portuguese': {
 		title: "Descubra o que esperar se você optar por participar deste estudo",
 		label: "Por favor, insira sua senha",
 		button_enter: "Entrar",
@@ -251,13 +251,13 @@ const TRANSLATIONS = {
 		button_enter: "Sulod",
 		forgotten_password: "Kon <strong>dili nimo mahinumdoman</strong> ang imong password, palihug tan-awa ang imong wallet card o kontaka ang imong study team."
 	  },
-	  'chinese_hk': {
+	  'chinese-hk': {
 		title: "了解如果您選擇參與本研究將會發生什麼",
 		label: "請輸入您的密碼",
 		button_enter: "進入",
 		forgotten_password: "如果您<strong>記不起</strong>您的密碼，請參閱您的錢包卡或聯繫您的研究團隊。"
 	  },
-	  'chinese_tw': {
+	  'chinese-tw': {
 		title: "了解如果您選擇參與本研究將會發生什麼",
 		label: "請輸入您的密碼",
 		button_enter: "進入",
@@ -269,7 +269,7 @@ const TRANSLATIONS = {
 		button_enter: "Entrer",
 		forgotten_password: "Si vous <strong>ne vous souvenez plus</strong> de votre mot de passe, veuillez consulter votre carte de portefeuille ou contacter votre équipe d'étude."
 	  },
-	  'french_canadian': {
+	  'french-ca': {
 		title: "Découvrez à quoi vous attendre si vous choisissez de participer à cette étude",
 		label: "Veuillez entrer votre mot de passe",
 		button_enter: "Entrer",
@@ -417,7 +417,7 @@ const TRANSLATIONS = {
 		button_enabled: "Continue",
 		button_back: "Back"
 	  },
-	  'english_us': {
+	  'english-us': {
 		title: "Please select your preferred language",
 		unavailable_language: "This country's support page currently does not offer a version in your chosen language (English US)",
 		search: "Search",
@@ -433,7 +433,7 @@ const TRANSLATIONS = {
 		button_enabled: "চালিয়ে যান",
 		button_back: "পিছনে"
 	  },
-	  'brazilian_portuguese': {
+	  'brazilian-portuguese': {
 		title: "Selecione seu idioma preferido",
 		unavailable_language: "A página de suporte deste país atualmente não oferece uma versão no seu idioma escolhido (Português Brasileiro)",
 		search: "Buscar",
@@ -449,7 +449,7 @@ const TRANSLATIONS = {
 		button_enabled: "Padayon",
 		button_back: "Balik"
 	  },
-	  'chinese_hk': {
+	  'chinese-hk': {
 		title: "請選擇您的首選語言",
 		unavailable_language: "此國家/地區的支援頁面目前不提供您所選語言的版本 (中文 HK)",
 		search: "搜尋",
@@ -457,7 +457,7 @@ const TRANSLATIONS = {
 		button_enabled: "繼續",
 		button_back: "返回"
 	  },
-	  'chinese_tw': {
+	  'chinese-tw': {
 		title: "請選擇您的首選語言",
 		unavailable_language: "此國家/地區的支援頁面目前不提供您所選語言的版本 (中文 TW)",
 		search: "搜尋",
@@ -473,7 +473,7 @@ const TRANSLATIONS = {
 		button_enabled: "Continuer",
 		button_back: "Retour"
 	  },
-	  'french_canadian': {
+	  'french-ca': {
 		title: "Veuillez sélectionner votre langue préférée",
 		unavailable_language: "La page d'assistance de ce pays n'offre actuellement pas de version dans la langue que vous avez choisie (Français Canadien)",
 		search: "Rechercher",
@@ -671,14 +671,14 @@ const COUNTRY_DEFAULTS = {
   'gb': 'english',       // United Kingdom
   'tr': 'turkish',          // Turkey
   'th': 'thai',             // Thailand
-  'hk': 'chinese_hk',       // Hong Kong
-  'br': 'brazilian_portuguese', // Brazil
-  'tw': 'chinese_tw',       // Taiwan
+  'hk': 'chinese-hk',       // Hong Kong
+  'br': 'brazilian-portuguese', // Brazil
+  'tw': 'chinese-tw',       // Taiwan
   'jp': 'japanese',         // Japan
   'ph': 'english',       // Philippines (default to English)
-  'in': 'english',       // India (default to English)
-  'us': 'english_us',       // United States
-  'ca': 'english',       // Canada (could be french_canadian in some regions)
+  'in': 'hindi',       // India (default to English)
+  'us': 'english-us',       // United States
+  'ca': 'english',       // Canada (could be french-ca in some regions)
   'kr': 'korean',           // South Korea
   'vn': 'vietnamese',       // Vietnam
   'au': 'english'        // Australia
