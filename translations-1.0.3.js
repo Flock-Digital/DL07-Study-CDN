@@ -30,13 +30,6 @@ const TRANSLATIONS = {
 		button_disabled: "Selecione seu país",
 		button_enabled: "Entrar"
 	  },
-	  'cebuano': { // Cebuano
-		title: "Susiha ang imong mga DESTINY-Lung07 support videos",
-		subtitle: "<p><strong>Pilia</strong> ang imong nasud aron magpadayon.</p>",
-		search: "Pangita",
-		button_disabled: "Pilia ang imong nasud",
-		button_enabled: "Sulod"
-	  },
 	  'chinese-hk': { // Chinese (HK)
 		title: "探索您的 DESTINY-Lung07 支援影片",
 		subtitle: "<p><strong>選擇</strong>您的國家/地區以繼續。</p>",
@@ -79,13 +72,6 @@ const TRANSLATIONS = {
 		button_disabled: "તમારા દેશને પસંદ કરો",
 		button_enabled: "દાખલ કરો"
 	  },
-	  'hiligaynon': { // Hiligaynon
-		title: "Utsa ang imo nga DESTINY-Lung07 support videos",
-		subtitle: "<p><strong>Pilia</strong> ang imo nasyon agud magpadayon.</p>",
-		search: "Pangita",
-		button_disabled: "Pilia ang imo nasyon",
-		button_enabled: "Sulod"
-	  },
 	  'hindi': { // Hindi
 		title: "अपने DESTINY-Lung07 सहायता वीडियो खोजें",
 		subtitle: "<p>जारी रखने के लिए अपना देश <strong>चुनें</strong>।</p>",
@@ -99,13 +85,6 @@ const TRANSLATIONS = {
 		search: "Keresés",
 		button_disabled: "Válassza ki az országát",
 		button_enabled: "Belépés"
-	  },
-	  'ilocano': { // Ilocano
-		title: "Sukimaten dagiti DESTINY-Lung07 support videos mo",
-		subtitle: "<p><strong>Pilien</strong> ti pagiliam tapno agtuloy.</p>",
-		search: "Agbiruk",
-		button_disabled: "Pilien ti pagiliam",
-		button_enabled: "Sumrek"
 	  },
 	  'italian': { // Italian
 		title: "Esplora i tuoi video di supporto DESTINY-Lung07",
@@ -169,13 +148,6 @@ const TRANSLATIONS = {
 		search: "Buscar",
 		button_disabled: "Selecciona tu país",
 		button_enabled: "Entrar"
-	  },
-	  'tagalog': { // Tagalog
-		title: "Tuklasin ang iyong mga DESTINY-Lung07 support videos",
-		subtitle: "<p><strong>Piliin</strong> ang iyong bansa upang magpatuloy.</p>",
-		search: "Maghanap",
-		button_disabled: "Piliin ang iyong bansa",
-		button_enabled: "Pumasok"
 	  },
 	  'tamil': { // Tamil
 		title: "உங்கள் DESTINY-Lung07 ஆதரவு வீடியோக்களை ஆராயுங்கள்",
@@ -245,12 +217,6 @@ const TRANSLATIONS = {
 		button_enter: "Entrar",
 		forgotten_password: "Se você <strong>não conseguir lembrar</strong> sua senha, consulte seu cartão de carteira ou entre em contato com sua equipe de estudo."
 	  },
-	  'cebuano': {
-		title: "Hibaw-i kung unsa ang mapaabut kung mopili ka nga moapil niini nga pagtuon",
-		label: "Palihug isulod ang imong password",
-		button_enter: "Sulod",
-		forgotten_password: "Kon <strong>dili nimo mahinumdoman</strong> ang imong password, palihug tan-awa ang imong wallet card o kontaka ang imong study team."
-	  },
 	  'chinese-hk': {
 		title: "了解如果您選擇參與本研究將會發生什麼",
 		label: "請輸入您的密碼",
@@ -287,12 +253,6 @@ const TRANSLATIONS = {
 		button_enter: "દાખલ કરો",
 		forgotten_password: "જો તમે તમારો પાસવર્ડ <strong>યાદ ન કરી શકો</strong>, તો કૃપા કરીને તમારા વૉલેટ કાર્ડનો સંદર્ભ લો અથવા તમારી અભ્યાસ ટીમનો સંપર્ક કરો."
 	  },
-	  'hiligaynon': {
-		title: "Hibalui kon ano ang paabuton kon magpili ka nga mag-apil sa sini nga pagtuon",
-		label: "Palihog isulod ang imo password",
-		button_enter: "Sulod",
-		forgotten_password: "Kon <strong>indi mo madumduman</strong> ang imo password, palihog tan-awa ang imo wallet card ukon kontaka ang imo study team."
-	  },
 	  'hindi': {
 		title: "यदि आप इस अध्ययन में भाग लेना चुनते हैं तो क्या उम्मीद करें, यह जानें",
 		label: "कृपया अपना पासवर्ड दर्ज करें",
@@ -304,12 +264,6 @@ const TRANSLATIONS = {
 		label: "Kérjük, adja meg jelszavát",
 		button_enter: "Belépés",
 		forgotten_password: "Ha <strong>nem emlékszik</strong> a jelszavára, kérjük, nézze meg pénztárca kártyáját, vagy lépjen kapcsolatba vizsgálati csapatával."
-	  },
-	  'ilocano': {
-		title: "Ammuem no ania ti mapasamak no piliemto nga makipaset iti daytoy nga panagadal",
-		label: "Pangngaasi nga ikabil ti password mo",
-		button_enter: "Sumrek",
-		forgotten_password: "No <strong>di mo malagip</strong> ti password mo, pangngaasi a kitaen ti wallet card mo wenno kontaken ti study team mo."
 	  },
 	  'italian': {
 		title: "Scopri cosa aspettarti se scegli di prendere parte a questo studio",
@@ -364,12 +318,6 @@ const TRANSLATIONS = {
 		label: "Por favor, ingresa tu contraseña",
 		button_enter: "Entrar",
 		forgotten_password: "Si <strong>no puedes recordar</strong> tu contraseña, consulta tu tarjeta de billetera o contacta a tu equipo de estudio."
-	  },
-	  'tagalog': {
-		title: "Alamin kung ano ang inaasahan kung pipiliin mong lumahok sa pag-aaral na ito",
-		label: "Pakiusap ipasok ang iyong password",
-		button_enter: "Pumasok",
-		forgotten_password: "Kung <strong>hindi mo maalala</strong> ang iyong password, mangyaring tingnan ang iyong wallet card o makipag-ugnayan sa iyong study team."
 	  },
 	  'tamil': {
 		title: "இந்த ஆய்வில் பங்கேற்க நீங்கள் தேர்வுசெய்தால் என்ன எதிர்பார்க்கலாம் என்பதைக் கண்டறியவும்",
@@ -441,14 +389,6 @@ const TRANSLATIONS = {
 		button_enabled: "Continuar",
 		button_back: "Voltar"
 	  },
-	  'cebuano': {
-		title: "Palihug pilia ang imong gusto nga pinulongan",
-		unavailable_language: "Ang support page niini nga nasud karon wala mag-offer og bersyon sa imong gipili nga pinulongan (Cebuano)",
-		search: "Pangita",
-		button_disabled: "Pilia ang pinulongan",
-		button_enabled: "Padayon",
-		button_back: "Balik"
-	  },
 	  'chinese-hk': {
 		title: "請選擇您的首選語言",
 		unavailable_language: "此國家/地區的支援頁面目前不提供您所選語言的版本 (中文 HK)",
@@ -497,14 +437,6 @@ const TRANSLATIONS = {
 		button_enabled: "ચાલુ રાખો",
 		button_back: "પાછળ"
 	  },
-	  'hiligaynon': {
-		title: "Palihug pilia ang imo gusto nga pinulongan",
-		unavailable_language: "Ang support page sini nga nasyon subong wala nag-offer sang bersyon sa imo ginpili nga pinulongan (Hiligaynon)",
-		search: "Pangita",
-		button_disabled: "Pilia ang pinulongan",
-		button_enabled: "Padayon",
-		button_back: "Balik"
-	  },
 	  'hindi': {
 		title: "कृपया अपनी पसंदीदा भाषा चुनें",
 		unavailable_language: "इस देश का सहायता पृष्ठ वर्तमान में आपकी चुनी हुई भाषा (हिंदी) में संस्करण प्रदान नहीं करता है",
@@ -520,14 +452,6 @@ const TRANSLATIONS = {
 		button_disabled: "Nyelv kiválasztása",
 		button_enabled: "Folytatás",
 		button_back: "Vissza"
-	  },
-	  'ilocano': {
-		title: "Pangngaasi a pilien ti kayatmo a pagsasao",
-		unavailable_language: "Ti support page daytoy a pagilian ita ket saan nga agipaaay ti bersion iti pili mo a pagsasao (Ilocano)",
-		search: "Agbiruk",
-		button_disabled: "Pilien ti pagsasao",
-		button_enabled: "Agtuloy",
-		button_back: "Agsubli"
 	  },
 	  'italian': {
 		title: "Seleziona la tua lingua preferita",
@@ -601,14 +525,6 @@ const TRANSLATIONS = {
 		button_enabled: "Continuar",
 		button_back: "Atrás"
 	  },
-	  'tagalog': {
-		title: "Pakiusap piliin ang iyong gustong wika",
-		unavailable_language: "Ang support page ng bansang ito ay kasalukuyang hindi nag-aalok ng bersyon sa iyong napiling wika (Tagalog)",
-		search: "Maghanap",
-		button_disabled: "Piliin ang wika",
-		button_enabled: "Magpatuloy",
-		button_back: "Bumalik"
-	  },
 	  'tamil': {
 		title: "உங்கள் விருப்பமான மொழியைத் தேர்ந்தெடுக்கவும்",
 		unavailable_language: "இந்த நாட்டின் ஆதரவு பக்கம் தற்போது நீங்கள் தேர்ந்தெடுத்த மொழியில் (தமிழ்) பதிப்பை வழங்கவில்லை",
@@ -675,7 +591,6 @@ const COUNTRY_DEFAULTS = {
   'br': 'brazilian-portuguese', // Brazil
   'tw': 'chinese-tw',       // Taiwan
   'jp': 'japanese',         // Japan
-  'ph': 'english',       // Philippines (default to English)
   'in': 'hindi',       // India (default to English)
   'us': 'english-us',       // United States
   'ca': 'english',       // Canada (could be french-ca in some regions)
