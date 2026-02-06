@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (pageTranslations[key]) {
 				if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
 					element.placeholder = pageTranslations[key];
+				} else if (element.tagName === 'INPUT' && element.type === 'submit') {
+					element.value = pageTranslations[key];
 				} else if (element.tagName === 'LABEL') {
 					element.textContent = pageTranslations[key];
 				} else {
